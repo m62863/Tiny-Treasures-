@@ -4,251 +4,488 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff8f5">
-<title>Tiny Treasures | Little things, endless joy</title>
+<title>Tiny Treasures 🎀</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --cream:#fff9f5;--paper:#fffdfb;--pink:#f7dce4;--pink2:#f2c4d3;
-  --rose:#b65d79;--plum:#63465e;--lilac:#e9e0f5;--ink:#443541;
-  --muted:#887783;--line:#f0e3e8;--gold:#c49a58;--green:#6e9278;
-  --shadow:0 16px 45px rgba(105,66,86,.09);
+:root {
+  --pink: #e99ab9;
+  --dark: #a94e76;
+  --light: #fff0f5;
+  --cream: #fffaf8;
+  --text: #63434f;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-.top-strip{background:var(--plum);color:#fff8f5;text-align:center;padding:9px 12px;font-size:11px;letter-spacing:1.5px}
-.site-header{position:sticky;top:0;z-index:20;background:rgba(255,249,245,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:10px}
-.brand-mark{width:42px;height:42px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-size:21px}
-.brand-name{font:36px 'Sacramento',cursive;color:var(--plum);line-height:1}
-.brand-small{font-size:9px;letter-spacing:2px;color:var(--muted);margin-top:3px}
-.nav-links{display:flex;align-items:center;gap:25px;font-size:12px;font-weight:700;color:var(--plum)}
-.nav-links a:hover{color:var(--rose)}
-.bag-btn{border:1px solid var(--pink2);background:#fff;border-radius:30px;padding:10px 15px;color:var(--plum);font-weight:800;font-size:12px}
-.bag-count{display:inline-grid;place-items:center;background:var(--rose);color:white;width:20px;height:20px;border-radius:50%;margin-left:5px;font-size:10px}
-.hero{max-width:1180px;margin:24px auto 0;padding:0 22px}
-.hero-panel{min-height:430px;border-radius:30px;overflow:hidden;position:relative;background:linear-gradient(115deg,#f8e5e9 0%,#f8eaf0 47%,#eee7f7 100%);display:grid;grid-template-columns:1.08fr .92fr;align-items:center;padding:54px 7%;isolation:isolate}
-.hero-panel:before{content:"";position:absolute;width:350px;height:350px;border:1px solid rgba(182,93,121,.17);border-radius:50%;right:5%;top:10%;z-index:-1}
-.hero-panel:after{content:"";position:absolute;width:240px;height:240px;border:1px dashed rgba(182,93,121,.22);border-radius:50%;right:10%;top:22%;z-index:-1}
-.hero-copy{max-width:520px;z-index:1}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);border-radius:30px;padding:9px 14px;font-size:10px;font-weight:800;letter-spacing:1.7px;color:var(--rose);text-transform:uppercase}
-.hero h1{font:clamp(48px,7vw,82px)/.98 'Playfair Display',serif;color:var(--plum);margin:22px 0 12px;letter-spacing:-2px}
-.hero h1 em{font-family:'Sacramento',cursive;font-weight:400;color:var(--rose);font-size:1.18em}
-.hero-copy p{font-size:14px;line-height:1.8;color:#765f70;max-width:390px;margin:0 0 24px}
-.primary-btn{display:inline-flex;align-items:center;gap:10px;background:var(--plum);color:white;border:0;border-radius:30px;padding:14px 21px;font-size:12px;font-weight:800;box-shadow:0 9px 20px rgba(99,70,94,.18)}
-.primary-btn:hover{transform:translateY(-2px);background:var(--rose)}
-.hero-art{position:relative;min-height:300px;display:grid;place-items:center}
-.orbit{width:min(310px,80vw);aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.8);display:grid;place-items:center;position:relative}
-.orbit-inner{width:74%;height:74%;border-radius:50%;background:linear-gradient(145deg,#fff9f5,#f7dce4);display:grid;place-items:center;font-size:clamp(75px,10vw,120px);box-shadow:0 15px 40px rgba(120,78,100,.12)}
-.float{position:absolute;background:#fffdfb;border-radius:18px;padding:11px 14px;box-shadow:var(--shadow);font-size:12px;font-weight:800;color:var(--plum)}
-.float.one{top:12%;left:-2%;transform:rotate(-8deg)}
-.float.two{bottom:12%;right:-4%;transform:rotate(7deg)}
-.spark{position:absolute;color:var(--gold);font-size:25px}
-.spark.s1{top:4%;right:16%}.spark.s2{bottom:8%;left:12%;font-size:18px}
-.marquee{overflow:hidden;background:#fffdfb;border-block:1px solid var(--line);margin-top:24px;padding:13px 0;color:var(--rose);font:italic 17px 'Playfair Display',serif;white-space:nowrap}
-.marquee span{display:inline-block;padding-left:28px;animation:slide 28s linear infinite}
-@keyframes slide{to{transform:translateX(-50%)}}
-.section{max-width:1180px;margin:0 auto;padding:68px 22px}
-.section-head{text-align:center;margin-bottom:28px}
-.kicker{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--rose)}
-.section h2{font:clamp(34px,5vw,48px) 'Playfair Display',serif;color:var(--plum);margin:8px 0}
-.section-head p{color:var(--muted);font-size:13px;margin:0}
-.category-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:24px 0 30px}
-.chip{border:1px solid var(--line);background:#fff;border-radius:30px;padding:10px 16px;color:var(--plum);font-size:11px;font-weight:800}
-.chip.active,.chip:hover{background:var(--plum);border-color:var(--plum);color:white}
-.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
-.search{width:min(320px,100%);border:1px solid var(--line);background:#fff;border-radius:30px;padding:12px 16px;outline:none;font:12px 'DM Sans',sans-serif;color:var(--ink)}
-.search:focus{border-color:var(--pink2);box-shadow:0 0 0 3px rgba(242,196,211,.25)}
-.results-note{font-size:11px;color:var(--muted)}
-.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.product-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s;position:relative}
-.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.product-image{height:220px;background:linear-gradient(145deg,#f9e8ed,#eee7f7);display:grid;place-items:center;position:relative;overflow:hidden}
-.product-image img{width:100%;height:100%;object-fit:cover;display:block}
-.product-image .placeholder{font-size:64px;filter:drop-shadow(0 8px 8px rgba(99,70,94,.12))}
-.product-tag{position:absolute;top:12px;left:12px;background:#fffdfb;color:var(--rose);border-radius:30px;padding:7px 10px;font-size:9px;font-weight:800;letter-spacing:.7px;text-transform:uppercase}
-.product-info{padding:15px}
-.product-category{font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:var(--rose);font-weight:800}
-.product-info h3{font:18px 'Playfair Display',serif;color:var(--plum);margin:7px 0}
-.product-desc{font-size:11px;line-height:1.6;color:var(--muted);min-height:35px}
-.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:13px}
-.price{font-size:13px;font-weight:800;color:var(--plum)}
-.add-btn{border:0;background:var(--pink);color:var(--plum);border-radius:22px;padding:9px 12px;font-size:10px;font-weight:800}
-.add-btn:hover{background:var(--pink2)}
-.add-btn:disabled{background:#eee8ec;color:#988b94;cursor:not-allowed}
-.sold{background:#f1edf2;color:#806d7c}
-.stock-note{font-size:10px;color:var(--green);margin-top:9px}
-.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted)}
-.feature-band{max-width:1136px;margin:0 auto 25px;padding:0 22px}
-.feature-inner{background:var(--plum);border-radius:26px;padding:35px 7%;color:#fff8f5;display:flex;justify-content:space-between;align-items:center;gap:25px;overflow:hidden;position:relative}
-.feature-inner:after{content:"✿";position:absolute;font-size:170px;color:rgba(255,255,255,.06);right:22%;top:-48px}
-.feature-inner h2{font:34px 'Playfair Display',serif;margin:0 0 8px}
-.feature-inner p{font-size:12px;color:#eadde7;margin:0;line-height:1.7}
-.feature-inner .light-btn{background:#fff8f5;color:var(--plum);border:0;border-radius:30px;padding:13px 18px;font-size:11px;font-weight:800;white-space:nowrap;z-index:1}
-.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}
-.perk{background:#fffdfb;border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center}
-.perk .emoji{font-size:25px}.perk h3{font:17px 'Playfair Display',serif;color:var(--plum);margin:9px 0 5px}.perk p{font-size:11px;color:var(--muted);margin:0;line-height:1.6}
-.footer{background:#f4e8ed;margin-top:40px;padding:42px 22px 25px;text-align:center}
-.footer-brand{font:43px 'Sacramento',cursive;color:var(--plum)}
-.footer p{font-size:12px;color:#806d7c;line-height:1.8}
-.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;font-size:11px;font-weight:800;color:var(--plum);margin:18px 0}
-.copyright{font-size:10px;color:#9a8794;margin-top:25px}
-.cart-panel{position:fixed;inset:0;z-index:50;display:none;background:rgba(50,30,45,.35);justify-content:flex-end}
-.cart-panel.open{display:flex}
-.cart{width:min(420px,100%);height:100%;background:var(--paper);padding:23px;display:flex;flex-direction:column;box-shadow:-15px 0 40px rgba(60,30,50,.12)}
-.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}
-.cart-head h2{font:28px 'Playfair Display',serif;color:var(--plum);margin:0}
-.close{border:0;background:var(--pink);width:34px;height:34px;border-radius:50%;color:var(--plum);font-size:18px}
-.cart-items{overflow:auto;flex:1;padding:15px 0}
-.cart-line{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}
-.cart-line strong{display:block;color:var(--plum);margin-bottom:4px}
-.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
-.qty button{border:1px solid var(--line);background:white;border-radius:50%;width:23px;height:23px;color:var(--plum)}
-.cart-foot{border-top:1px solid var(--line);padding-top:15px}
-.total{display:flex;justify-content:space-between;font-weight:800;color:var(--plum);margin-bottom:14px}
-.checkout{width:100%;border:0;border-radius:30px;background:#2f8a61;color:white;padding:14px;font-weight:800;font-size:12px}
-.smallprint{font-size:10px;color:var(--muted);line-height:1.5;text-align:center;margin-top:10px}
-@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-panel{padding:40px 6%;min-height:380px}.product-image{height:190px}}
-@media(max-width:600px){
- .top-strip{font-size:9px}.nav{padding:12px 16px}.brand-name{font-size:31px}.brand-mark{width:36px;height:36px}
- .nav-links{display:none}.hero{padding:0 12px;margin-top:13px}.hero-panel{grid-template-columns:1fr;padding:34px 24px 20px;text-align:center;min-height:0}
- .hero-copy{margin:auto}.hero h1{font-size:55px}.hero-copy p{margin:0 auto 20px}.hero-art{min-height:225px;margin-top:8px}.orbit{width:210px}.orbit-inner{font-size:82px}
- .float.one{left:2%;top:9%}.float.two{right:0;bottom:8%}.section{padding:52px 14px}.product-grid{gap:11px}.product-image{height:155px}
- .product-info{padding:11px}.product-info h3{font-size:16px}.product-desc{font-size:10px}.add-btn{padding:8px 10px}
- .tools{align-items:flex-start;flex-direction:column}.search{width:100%}.feature-band{padding:0 14px}.feature-inner{padding:27px 22px;display:block}.feature-inner h2{font-size:29px}.feature-inner .light-btn{margin-top:17px}
- .perks{grid-template-columns:1fr}.footer{padding-inline:15px}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+}
+
+header {
+  background: #ffe4ee;
+  text-align: center;
+  padding: 34px 15px 25px;
+  border-bottom: 2px dashed #e9abc3;
+}
+
+.decor {
+  font-size: 24px;
+  letter-spacing: 8px;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  color: var(--dark);
+  font-size: 65px;
+  margin: 8px 0 0;
+}
+
+.tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #a56c80;
+}
+
+nav {
+  background: white;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: 0 3px 10px #e8b5c522;
+}
+
+nav a {
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero {
+  text-align: center;
+  padding: 55px 20px;
+  background: linear-gradient(135deg,#fff0f5,#f9d4e3,#fff5f8);
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  color: #a94e76;
+  margin: 5px;
+}
+
+.hero p { line-height: 1.7; }
+
+.btn {
+  display: inline-block;
+  background: #d979a1;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn:hover { background: #ad527b; }
+
+section {
+  padding: 38px 18px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: var(--dark);
+  font-size: 29px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #a98291;
+  margin-bottom: 28px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 22px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #f3d4e0;
+  border-radius: 18px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 5px 18px #dba6bb20;
+  transition: .2s;
+}
+
+.product:hover { transform: translateY(-4px); }
+
+.product img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  border-radius: 13px;
+  background: #fff0f5;
+}
+
+.product h3 {
+  font-family: 'Playfair Display', serif;
+  margin: 13px 0 5px;
+}
+
+.price {
+  color: #b34e7c;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.stock {
+  font-size: 12px;
+  margin: 8px;
+  color: #54845e;
+}
+
+.stock.low { color: #c17a25; }
+.stock.none { color: #c34d63; }
+
+.product input {
+  width: 65px;
+  padding: 8px;
+  border: 1px solid #e8bdce;
+  border-radius: 9px;
+  margin: 5px;
+}
+
+.product button {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.cart {
+  background: #fff0f5;
+  border: 1px dashed #e5a4bf;
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: 25px;
+}
+
+.cart h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--dark);
+}
+
+.cart-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid #f1d4df;
+}
+
+.cart-line button {
+  border: none;
+  background: none;
+  color: #bb557c;
+  cursor: pointer;
+}
+
+.about {
+  background: #fff0f5;
+  text-align: center;
+  max-width: none;
+  padding: 45px 20px;
+}
+
+footer {
+  background: #f7d9e5;
+  text-align: center;
+  padding: 25px;
+  color: #89546a;
+  font-size: 13px;
+}
+
+@media(max-width:500px) {
+  h1 { font-size: 53px; }
+  .hero h2 { font-size: 27px; }
+  nav { gap: 18px; }
 }
 </style>
 </head>
+
 <body>
-<div class="top-strip">A LITTLE SOMETHING SPECIAL, JUST FOR YOU ✧ SHOP THE LITTLE JOYS ✧</div>
-<header class="site-header">
-  <nav class="nav">
-    <a class="brand" href="#">
-      <div class="brand-mark">🎀</div>
-      <div><div class="brand-name">Tiny Treasures</div><div class="brand-small">LITTLE THINGS, ENDLESS JOY</div></div>
-    </a>
-    <div class="nav-links"><a href="#shop">SHOP ALL</a><a href="#about">OUR LITTLE WORLD</a><a href="#contact">SAY HELLO</a></div>
-    <button class="bag-btn" onclick="toggleCart(true)">♡ BAG <span class="bag-count" id="bagCount">0</span></button>
-  </nav>
+
+<header>
+  <div class="decor">🎀 🌷 🧸 🌸</div>
+  <h1>Tiny Treasures</h1>
+  <div class="tagline">Little things, big happiness ♡</div>
+  <div class="decor">🌸 🎀 ✨ 🎀 🌸</div>
 </header>
 
-<main>
-<section class="hero">
- <div class="hero-panel">
-  <div class="hero-copy">
-   <div class="eyebrow">✧ Welcome to our happy place ✧</div>
-   <h1>Find your<br><em>little joy.</em></h1>
-   <p>Curious finds, cute surprises and tiny things that make an ordinary day feel a little more special. There's a treasure waiting for you.</p>
-   <a class="primary-btn" href="#shop">EXPLORE THE TREASURES <span>↗</span></a>
-  </div>
-  <div class="hero-art">
-   <span class="spark s1">✦</span><span class="spark s2">✧</span>
-   <div class="orbit"><div class="orbit-inner">🎁</div></div>
-   <div class="float one">♡ little finds</div><div class="float two">made for smiles ✨</div>
-  </div>
- </div>
-</section>
-<div class="marquee"><span>♡ CUTE FINDS &nbsp; ✧ &nbsp; LITTLE GIFTS &nbsp; ♡ &nbsp; HAPPY SURPRISES &nbsp; ✧ &nbsp; TINY TREASURES &nbsp; ♡ &nbsp; CUTE FINDS &nbsp; ✧ &nbsp; LITTLE GIFTS &nbsp; ♡ &nbsp; HAPPY SURPRISES &nbsp; ✧ &nbsp; TINY TREASURES &nbsp; </span></div>
+<nav>
+  <a href="#home">HOME</a>
+  <a href="#shop">SHOP</a>
+  <a href="#about">ABOUT</a>
+  <a href="#cart">MY CART 🛍️</a>
+</nav>
 
-<section class="section" id="shop">
- <div class="section-head"><div class="kicker">the fun part starts here</div><h2>A treasure for everyone</h2><p>Have a little browse. You never know what you'll fall in love with.</p></div>
- <div class="category-row" id="categories">
-  <button class="chip active" data-category="All">Everything</button>
-  <button class="chip" data-category="Crafts">Crafty things</button>
-  <button class="chip" data-category="Decor">Cute for your space</button>
-  <button class="chip" data-category="Toys">Toys & surprises</button>
-  <button class="chip" data-category="Accessories">Little extras</button>
- </div>
- <div class="tools"><input class="search" id="search" type="search" placeholder="Search for a little treasure..."><span class="results-note" id="resultsNote"></span></div>
- <div class="product-grid" id="productGrid"></div>
-</section>
-
-<section class="feature-band">
- <div class="feature-inner">
-  <div><h2>Small things. Big smiles. ♡</h2><p>Some treasures are just too cute to keep to yourself.<br>Find your next favourite little thing at Tiny Treasures.</p></div>
-  <a class="light-btn" href="#shop">FIND YOUR FAVOURITE ↗</a>
- </div>
-</section>
-
-<section class="section" id="about">
- <div class="section-head"><div class="kicker">a little note from us</div><h2>Why Tiny Treasures?</h2><p>Because life's little joys deserve to be celebrated.</p></div>
- <div class="perks">
-  <div class="perk"><div class="emoji">🎀</div><h3>Handpicked finds</h3><p>Fun, thoughtful and unexpected little treasures.</p></div>
-  <div class="perk"><div class="emoji">💌</div><h3>Easy ordering</h3><p>Send us your order on WhatsApp and we'll help you from there.</p></div>
-  <div class="perk"><div class="emoji">✨</div><h3>Little quantities</h3><p>Some finds are limited, so grab your favourite while it's here.</p></div>
- </div>
-</section>
-</main>
-
-<footer class="footer" id="contact">
- <div class="footer-brand">Tiny Treasures</div>
- <p>Little things, endless joy. ✨<br>Got your eye on something? We'd love to hear from you.</p>
- <div class="footer-links"><a href="#shop">SHOP</a><a href="https://www.instagram.com/tiny_treasures.tz/" target="_blank" rel="noopener">INSTAGRAM</a><a href="#" id="footerWhatsApp">WHATSAPP</a></div>
- <div class="copyright">© <span id="year"></span> Tiny Treasures · Made with ♡ in Tanzania</div>
-</footer>
-
-<div class="cart-panel" id="cartPanel" onclick="if(event.target===this)toggleCart(false)">
- <aside class="cart">
-  <div class="cart-head"><h2>Your little bag ♡</h2><button class="close" onclick="toggleCart(false)">×</button></div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-foot"><div class="total"><span>Estimated total</span><span id="cartTotal">TZS 0</span></div><button class="checkout" onclick="checkout()">ORDER ON WHATSAPP ↗</button><div class="smallprint">We'll confirm availability, delivery and payment with you on WhatsApp.</div></div>
- </aside>
+<div class="hero" id="home">
+  <div style="font-size:30px">🎀 🧸 🌷</div>
+  <h2>Welcome to Tiny Treasures!</h2>
+  <p>A little shop filled with things you'll absolutely love.</p>
+  <a href="#shop" class="btn">Explore our shop ♡</a>
+  <p style="font-family:'Great Vibes';font-size:28px">
+    Made with love, just for you.
+  </p>
 </div>
 
+<section id="shop">
+  <h2 class="section-title">Our Little Shop 🌸</h2>
+  <p class="subtitle">Find your next favourite treasure!</p>
+
+  <div class="products" id="products"></div>
+
+  <div class="cart" id="cart">
+    <h3>🛍️ Your Shopping Bag</h3>
+    <div id="cart-items">Your cart is waiting for treasures ♡</div>
+    <h3 id="total">Total: TZS 0</h3>
+    <button class="btn" onclick="checkout()">
+      Order through WhatsApp 💗
+    </button>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2 class="section-title">A little about us ♡</h2>
+  <p>
+    Welcome to Tiny Treasures! 🌷<br>
+    We believe that the little things make life extra special.
+    Thank you for supporting our little business!
+  </p>
+  <div style="font-size:30px">🧸 🎀 🌸 ✨</div>
+</section>
+
+<footer>
+  <div style="font-family:'Great Vibes';font-size:35px">
+    Tiny Treasures
+  </div>
+  Little things, big happiness ♡
+  <p>Thank you for shopping with us! 🎀</p>
+</footer>
+
 <script>
-/* EDIT THESE DETAILS:
-   WhatsApp number: country code + number, digits only (example: 2557XXXXXXXX).
-   Product image: paste a direct image URL. Leave "" to show the cute placeholder.
-   Price: enter the price in TZS as a number, without commas.
-   Stock: enter 0 for sold out. Sold-out products stay visible.
-*/
-const WHATSAPP_NUMBER = "255YOURNUMBER";
+// ==================================
+// EDIT YOUR PRODUCTS HERE
+// ==================================
 
 const products = [
- {id:1,name:"Hanging Diamond Painting",category:"Crafts",price:0,stock:2,tag:"Creative time",emoji:"🌸",image:"",description:"A lovely little creative project."},
- {id:2,name:"Glow-in-the-dark Turtle",category:"Decor",price:0,stock:1,tag:"Little favourite",emoji:"🐢",image:"",description:"A cute glowing companion for your space."},
- {id:3,name:"Stitch Mystery Bag",category:"Toys",price:0,stock:1,tag:"Surprise inside",emoji:"💙",image:"",description:"A little surprise waiting to be opened."},
- {id:4,name:"Phone Accessories",category:"Accessories",price:0,stock:2,tag:"Cute extra",emoji:"🎀",image:"",description:"Add a little personality to your phone."}
+  {
+    id: 1,
+    name: "Your Product 1",
+    price: 15000,
+    stock: 5,
+    image: "images/product1.jpg"
+  },
+  {
+    id: 2,
+    name: "Your Product 2",
+    price: 20000,
+    stock: 1,
+    image: "images/product2.jpg"
+  },
+  {
+    id: 3,
+    name: "Your Product 3",
+    price: 10000,
+    stock: 0,
+    image: "images/product3.jpg"
+  }
 ];
 
-let activeCategory="All";
-let cart={};
-const money=n=>"TZS "+Number(n).toLocaleString("en-US");
-function renderProducts(){
- const term=document.getElementById("search").value.toLowerCase().trim();
- const shown=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(`${p.name} ${p.category} ${p.description}`).toLowerCase().includes(term));
- document.getElementById("resultsNote").textContent=`${shown.length} little ${shown.length===1?"treasure":"treasures"}`;
- const grid=document.getElementById("productGrid");
- if(!shown.length){grid.innerHTML='<div class="empty">No treasures found just yet. Try another search ♡</div>';return;}
- grid.innerHTML=shown.map(p=>{
-  const sold=p.stock<=0;
-  const image=p.image?`<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">`:"";
-  return `<article class="product-card">
-   <div class="product-image">${image}<div class="placeholder" style="${p.image?'display:none':''}">${p.emoji||"🎁"}</div>
-   <span class="product-tag">${sold?"Sold out":p.tag||"A tiny treasure"}</span></div>
-   <div class="product-info"><div class="product-category">${p.category}</div><h3>${p.name}</h3>
-   <div class="product-desc">${p.description||""}</div>
-   <div class="product-bottom"><span class="price">${p.price>0?money(p.price):"Price coming soon"}</span>
-   <button class="add-btn ${sold?'sold':''}" ${sold||p.price<=0?'disabled':''} onclick="addToCart(${p.id})">${sold?"SOLD OUT":p.price<=0?"COMING SOON":"ADD +"}</button></div>
-   <div class="stock-note">${sold?"Currently unavailable":p.stock===1?"Only 1 left!":p.stock<=3?`Only ${p.stock} left!`:"Available now"}</div></div>
-  </article>`;
- }).join("");
+// CHANGE THIS TO YOUR WHATSAPP NUMBER.
+// Use country code and number, without + or spaces.
+// Example format: 2557XXXXXXXX
+
+const whatsappNumber = "255XXXXXXXXX";
+
+let cart = [];
+
+function money(amount) {
+  return "TZS " + amount.toLocaleString("en-US");
 }
-document.querySelectorAll(".chip").forEach(btn=>btn.addEventListener("click",()=>{
- document.querySelectorAll(".chip").forEach(b=>b.classList.remove("active"));
- btn.classList.add("active");activeCategory=btn.dataset.category;renderProducts();
-}));
-document.getElementById("search").addEventListener("input",renderProducts);
-function addToCart(id){const p=products.find(x=>x.id===id);if(!p||p.stock<=0||p.price<=0)return;const qty=cart[id]||0;if(qty>=p.stock){alert("That's all the available stock for this treasure!");return;}cart[id]=qty+1;renderCart();}
-function changeQty(id,delta){const p=products.find(x=>x.id===id);const next=(cart[id]||0)+delta;if(next<=0)delete cart[id];else if(next<=p.stock)cart[id]=next;renderCart();}
-function renderCart(){
- const entries=Object.entries(cart).filter(([id,q])=>q>0);
- document.getElementById("bagCount").textContent=entries.reduce((s,[id,q])=>s+q,0);
- document.getElementById("cartItems").innerHTML=ent
+
+function displayProducts() {
+  const area = document.getElementById("products");
+
+  area.innerHTML = products.map(p => {
+    let stockText = "";
+    let stockClass = "";
+
+    if (p.stock === 0) {
+      stockText = "Out of stock";
+      stockClass = "none";
+    } else if (p.stock === 1) {
+      stockText = "Only 1 piece left!";
+      stockClass = "low";
+    } else if (p.stock <= 3) {
+      stockText = p.stock + " pieces left";
+      stockClass = "low";
+    } else {
+      stockText = "In stock: " + p.stock;
+    }
+
+    return `
+      <div class="product">
+        <img src="${p.image}"
+          alt="${p.name}"
+          onerror="this.style.display='none'">
+
+        <h3>${p.name}</h3>
+        <div class="price">${money(p.price)}</div>
+        <div class="stock ${stockClass}">${stockText}</div>
+
+        <input
+          type="number"
+          id="qty-${p.id}"
+          min="1"
+          max="${p.stock}"
+          value="1"
+          ${p.stock === 0 ? "disabled" : ""}
+        >
+
+        <button class="btn"
+          onclick="addToCart(${p.id})"
+          ${p.stock === 0 ? "disabled style='opacity:.5'" : ""}>
+          ${p.stock === 0 ? "Unavailable" : "Add to bag ♡"}
+        </button>
+      </div>
+    `;
+  }).join("");
+}
+
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  const quantity = Number(
+    document.getElementById("qty-" + id).value
+  );
+
+  if (!Number.isInteger(quantity) || quantity < 1) {
+    alert("Please enter a valid quantity!");
+    return;
+  }
+
+  const existing = cart.find(item => item.id === id);
+  const alreadyAdded = existing ? existing.quantity : 0;
+
+  if (alreadyAdded + quantity > product.stock) {
+    alert("Sorry! We only have " + product.stock + " left.");
+    return;
+  }
+
+  if (existing) {
+    existing.quantity += quantity;
+  } else {
+    cart.push({id, quantity});
+  }
+
+  displayCart();
+  alert("Added to your bag! 🎀");
+}
+
+function displayCart() {
+  const area = document.getElementById("cart-items");
+  let total = 0;
+
+  if (cart.length === 0) {
+    area.innerHTML = "Your cart is waiting for treasures ♡";
+  } else {
+    area.innerHTML = cart.map(item => {
+      const p = products.find(x => x.id === item.id);
+      const subtotal = p.price * item.quantity;
+      total += subtotal;
+
+      return `
+        <div class="cart-line">
+          <span>${p.name} × ${item.quantity}</span>
+          <span>
+            ${money(subtotal)}
+            <button onclick="removeItem(${p.id})">✕</button>
+          </span>
+        </div>
+      `;
+    }).join("");
+  }
+
+  document.getElementById("total").textContent =
+    "Total: " + money(total);
+}
+
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  displayCart();
+}
+
+function checkout() {
+  if (cart.length === 0) {
+    alert("Your shopping bag is empty!");
+    return;
+  }
+
+  let message = "Hello Tiny Treasures! 🎀 I'd like to order:\n\n";
+  let total = 0;
+
+  for (const item of cart) {
+    const p = products.find(x => x.id === item.id);
+
+    // Check stock again before sending
+    if (item.quantity > p.stock) {
+      alert("Stock has changed for " + p.name +
+        ". Please update your cart.");
+      return;
+    }
+
+    message += p.name + " x " + item.quantity +
+      " = " + money(p.price * item.quantity) + "\n";
+
+    total += p.price * item.quantity;
+  }
+
+  message += "\nTotal: " + money(total);
+  message += "\n\nPlease let me know how to complete my order. Thank you! 💗";
+
+  if (!/^255\d{9}$/.test(whatsappNumber)) {
+    alert("Please add your correct WhatsApp number in the code first!");
+    return;
+  }
+
+  window.open(
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+displayProducts();
+displayCart();
+</script>
+
+</body>
+</html>
