@@ -4,200 +4,251 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff5f6">
+<meta name="theme-color" content="#fff8f5">
 <title>Tiny Treasures | Little things, endless joy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Sacramento&display=swap" rel="stylesheet">
 <style>
-:root {
-  --pink:#f4cbd5;
-  --pink-dark:#d98da5;
-  --cream:#fffaf3;
-  --lavender:#eee7f8;
-  --ink:#55434c;
-  --muted:#927d86;
-  --white:#fff;
+:root{
+  --cream:#fff9f5;--paper:#fffdfb;--pink:#f7dce4;--pink2:#f2c4d3;
+  --rose:#b65d79;--plum:#63465e;--lilac:#e9e0f5;--ink:#443541;
+  --muted:#887783;--line:#f0e3e8;--gold:#c49a58;--green:#6e9278;
+  --shadow:0 16px 45px rgba(105,66,86,.09);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:'Nunito',sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif}
+a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
-.top-note{text-align:center;background:#f8e1e7;padding:9px;font-size:12px;letter-spacing:1px}
-header{padding:22px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{font-family:'Dancing Script',cursive;font-size:36px;font-weight:700;color:#bd718b}
-.brand small{display:block;font-family:'Nunito';font-size:10px;letter-spacing:3px;text-align:center;color:var(--muted);font-weight:800}
-.header-actions{display:flex;gap:10px}
-.pill{border:1px solid #edcfda;background:white;border-radius:30px;padding:10px 15px;color:var(--ink);font-weight:800}
-.hero{margin:8px 5% 30px;background:linear-gradient(120deg,#f8dce4,#fff0e8 55%,#eee6f7);border-radius:28px;padding:48px 7%;position:relative;overflow:hidden}
-.hero:after{content:"✿";position:absolute;right:7%;top:12%;font-size:100px;color:#fff9;transform:rotate(18deg)}
-.hero .eyebrow{font-size:11px;letter-spacing:3px;font-weight:900}
-.hero h1{font:600 clamp(38px,7vw,66px) 'Dancing Script',cursive;margin:12px 0;color:#a95f7b;max-width:600px}
-.hero p{max-width:430px;line-height:1.7;color:#735c66}
-.shop-button{display:inline-block;background:#bd718b;color:white;text-decoration:none;border:0;border-radius:30px;padding:13px 24px;font-weight:900;margin-top:10px}
-.decor{position:absolute;right:12%;bottom:10%;font-size:42px}
-.section{padding:12px 5% 45px}
-.section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
-.section-heading h2{font:600 34px 'Dancing Script',cursive;color:#a95f7b;margin:0}
-.section-heading p{font-size:12px;color:var(--muted);margin:4px 0}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
-.search{flex:1;min-width:180px;border:1px solid #eedce2;border-radius:25px;padding:12px 16px;background:white;font:inherit;outline:none}
-.categories{display:flex;gap:8px;flex-wrap:wrap}
-.category{border:1px solid #ead5dd;background:white;color:var(--ink);border-radius:25px;padding:10px 15px;font-size:12px;font-weight:800}
-.category.active{background:#bd718b;color:white;border-color:#bd718b}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
-.product{background:white;border:1px solid #f1e3e7;border-radius:20px;padding:10px;box-shadow:0 5px 18px #9e718010;min-width:0}
-.product-visual{height:175px;border-radius:15px;background:linear-gradient(145deg,#fff0f3,#f1eafa);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.product-visual img{width:100%;height:100%;object-fit:cover}
-.product-emoji{font-size:58px}
-.stock{position:absolute;top:9px;left:9px;background:#e7f4e8;color:#477b50;border-radius:20px;padding:5px 9px;font-size:10px;font-weight:900}
-.stock.out{background:#f8e4e9;color:#a34c68}
-.product h3{font-size:14px;margin:12px 2px 4px}
-.description{font-size:11px;color:var(--muted);margin:0 2px 9px;min-height:15px}
-.price{font-size:15px;font-weight:900;margin:0 2px 10px;color:#a95f7b}
-.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px}
-.card-bottom small{font-size:10px;color:var(--muted)}
-.add{border:0;background:#f5dce4;color:#995a73;border-radius:20px;padding:8px 12px;font-size:11px;font-weight:900}
-.add:disabled{background:#eee;color:#999;cursor:not-allowed}
-.empty{padding:35px;text-align:center;color:var(--muted);grid-column:1/-1}
-.cart-panel{margin:0 5% 40px;background:#fff;border:1px solid #f0dfe5;border-radius:24px;padding:22px}
-.cart-panel h2{font:600 30px 'Dancing Script',cursive;color:#a95f7b;margin:0 0 12px}
-.cart-line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #f4e9ed;font-size:13px}
-.cart-line button{border:0;background:none;color:#b46c86;font-weight:900}
-.cart-total{display:flex;justify-content:space-between;font-weight:900;padding:16px 0}
-.whatsapp{width:100%;border:0;border-radius:25px;background:#4b9b70;color:white;padding:14px;font-weight:900}
-.hint{font-size:11px;color:var(--muted);line-height:1.6}
-footer{text-align:center;background:#f7e4e9;padding:28px 15px;color:#806775;font-size:12px}
-footer strong{font:600 28px 'Dancing Script',cursive;color:#a95f7b}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-visual{height:155px}}
-@media(max-width:420px){header{padding:18px 4%}.brand{font-size:31px}.pill{padding:9px 11px;font-size:12px}.hero{margin:5px 4% 25px;padding:34px 7%}.section{padding-left:4%;padding-right:4%}.product-visual{height:135px}.product{padding:8px}}
+.top-strip{background:var(--plum);color:#fff8f5;text-align:center;padding:9px 12px;font-size:11px;letter-spacing:1.5px}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(255,249,245,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:42px;height:42px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-size:21px}
+.brand-name{font:36px 'Sacramento',cursive;color:var(--plum);line-height:1}
+.brand-small{font-size:9px;letter-spacing:2px;color:var(--muted);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:25px;font-size:12px;font-weight:700;color:var(--plum)}
+.nav-links a:hover{color:var(--rose)}
+.bag-btn{border:1px solid var(--pink2);background:#fff;border-radius:30px;padding:10px 15px;color:var(--plum);font-weight:800;font-size:12px}
+.bag-count{display:inline-grid;place-items:center;background:var(--rose);color:white;width:20px;height:20px;border-radius:50%;margin-left:5px;font-size:10px}
+.hero{max-width:1180px;margin:24px auto 0;padding:0 22px}
+.hero-panel{min-height:430px;border-radius:30px;overflow:hidden;position:relative;background:linear-gradient(115deg,#f8e5e9 0%,#f8eaf0 47%,#eee7f7 100%);display:grid;grid-template-columns:1.08fr .92fr;align-items:center;padding:54px 7%;isolation:isolate}
+.hero-panel:before{content:"";position:absolute;width:350px;height:350px;border:1px solid rgba(182,93,121,.17);border-radius:50%;right:5%;top:10%;z-index:-1}
+.hero-panel:after{content:"";position:absolute;width:240px;height:240px;border:1px dashed rgba(182,93,121,.22);border-radius:50%;right:10%;top:22%;z-index:-1}
+.hero-copy{max-width:520px;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);border-radius:30px;padding:9px 14px;font-size:10px;font-weight:800;letter-spacing:1.7px;color:var(--rose);text-transform:uppercase}
+.hero h1{font:clamp(48px,7vw,82px)/.98 'Playfair Display',serif;color:var(--plum);margin:22px 0 12px;letter-spacing:-2px}
+.hero h1 em{font-family:'Sacramento',cursive;font-weight:400;color:var(--rose);font-size:1.18em}
+.hero-copy p{font-size:14px;line-height:1.8;color:#765f70;max-width:390px;margin:0 0 24px}
+.primary-btn{display:inline-flex;align-items:center;gap:10px;background:var(--plum);color:white;border:0;border-radius:30px;padding:14px 21px;font-size:12px;font-weight:800;box-shadow:0 9px 20px rgba(99,70,94,.18)}
+.primary-btn:hover{transform:translateY(-2px);background:var(--rose)}
+.hero-art{position:relative;min-height:300px;display:grid;place-items:center}
+.orbit{width:min(310px,80vw);aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.8);display:grid;place-items:center;position:relative}
+.orbit-inner{width:74%;height:74%;border-radius:50%;background:linear-gradient(145deg,#fff9f5,#f7dce4);display:grid;place-items:center;font-size:clamp(75px,10vw,120px);box-shadow:0 15px 40px rgba(120,78,100,.12)}
+.float{position:absolute;background:#fffdfb;border-radius:18px;padding:11px 14px;box-shadow:var(--shadow);font-size:12px;font-weight:800;color:var(--plum)}
+.float.one{top:12%;left:-2%;transform:rotate(-8deg)}
+.float.two{bottom:12%;right:-4%;transform:rotate(7deg)}
+.spark{position:absolute;color:var(--gold);font-size:25px}
+.spark.s1{top:4%;right:16%}.spark.s2{bottom:8%;left:12%;font-size:18px}
+.marquee{overflow:hidden;background:#fffdfb;border-block:1px solid var(--line);margin-top:24px;padding:13px 0;color:var(--rose);font:italic 17px 'Playfair Display',serif;white-space:nowrap}
+.marquee span{display:inline-block;padding-left:28px;animation:slide 28s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+.section{max-width:1180px;margin:0 auto;padding:68px 22px}
+.section-head{text-align:center;margin-bottom:28px}
+.kicker{font-size:10px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--rose)}
+.section h2{font:clamp(34px,5vw,48px) 'Playfair Display',serif;color:var(--plum);margin:8px 0}
+.section-head p{color:var(--muted);font-size:13px;margin:0}
+.category-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:24px 0 30px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:30px;padding:10px 16px;color:var(--plum);font-size:11px;font-weight:800}
+.chip.active,.chip:hover{background:var(--plum);border-color:var(--plum);color:white}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.search{width:min(320px,100%);border:1px solid var(--line);background:#fff;border-radius:30px;padding:12px 16px;outline:none;font:12px 'DM Sans',sans-serif;color:var(--ink)}
+.search:focus{border-color:var(--pink2);box-shadow:0 0 0 3px rgba(242,196,211,.25)}
+.results-note{font-size:11px;color:var(--muted)}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.product-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s;position:relative}
+.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.product-image{height:220px;background:linear-gradient(145deg,#f9e8ed,#eee7f7);display:grid;place-items:center;position:relative;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;display:block}
+.product-image .placeholder{font-size:64px;filter:drop-shadow(0 8px 8px rgba(99,70,94,.12))}
+.product-tag{position:absolute;top:12px;left:12px;background:#fffdfb;color:var(--rose);border-radius:30px;padding:7px 10px;font-size:9px;font-weight:800;letter-spacing:.7px;text-transform:uppercase}
+.product-info{padding:15px}
+.product-category{font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:var(--rose);font-weight:800}
+.product-info h3{font:18px 'Playfair Display',serif;color:var(--plum);margin:7px 0}
+.product-desc{font-size:11px;line-height:1.6;color:var(--muted);min-height:35px}
+.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:13px}
+.price{font-size:13px;font-weight:800;color:var(--plum)}
+.add-btn{border:0;background:var(--pink);color:var(--plum);border-radius:22px;padding:9px 12px;font-size:10px;font-weight:800}
+.add-btn:hover{background:var(--pink2)}
+.add-btn:disabled{background:#eee8ec;color:#988b94;cursor:not-allowed}
+.sold{background:#f1edf2;color:#806d7c}
+.stock-note{font-size:10px;color:var(--green);margin-top:9px}
+.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted)}
+.feature-band{max-width:1136px;margin:0 auto 25px;padding:0 22px}
+.feature-inner{background:var(--plum);border-radius:26px;padding:35px 7%;color:#fff8f5;display:flex;justify-content:space-between;align-items:center;gap:25px;overflow:hidden;position:relative}
+.feature-inner:after{content:"✿";position:absolute;font-size:170px;color:rgba(255,255,255,.06);right:22%;top:-48px}
+.feature-inner h2{font:34px 'Playfair Display',serif;margin:0 0 8px}
+.feature-inner p{font-size:12px;color:#eadde7;margin:0;line-height:1.7}
+.feature-inner .light-btn{background:#fff8f5;color:var(--plum);border:0;border-radius:30px;padding:13px 18px;font-size:11px;font-weight:800;white-space:nowrap;z-index:1}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}
+.perk{background:#fffdfb;border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center}
+.perk .emoji{font-size:25px}.perk h3{font:17px 'Playfair Display',serif;color:var(--plum);margin:9px 0 5px}.perk p{font-size:11px;color:var(--muted);margin:0;line-height:1.6}
+.footer{background:#f4e8ed;margin-top:40px;padding:42px 22px 25px;text-align:center}
+.footer-brand{font:43px 'Sacramento',cursive;color:var(--plum)}
+.footer p{font-size:12px;color:#806d7c;line-height:1.8}
+.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;font-size:11px;font-weight:800;color:var(--plum);margin:18px 0}
+.copyright{font-size:10px;color:#9a8794;margin-top:25px}
+.cart-panel{position:fixed;inset:0;z-index:50;display:none;background:rgba(50,30,45,.35);justify-content:flex-end}
+.cart-panel.open{display:flex}
+.cart{width:min(420px,100%);height:100%;background:var(--paper);padding:23px;display:flex;flex-direction:column;box-shadow:-15px 0 40px rgba(60,30,50,.12)}
+.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}
+.cart-head h2{font:28px 'Playfair Display',serif;color:var(--plum);margin:0}
+.close{border:0;background:var(--pink);width:34px;height:34px;border-radius:50%;color:var(--plum);font-size:18px}
+.cart-items{overflow:auto;flex:1;padding:15px 0}
+.cart-line{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}
+.cart-line strong{display:block;color:var(--plum);margin-bottom:4px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{border:1px solid var(--line);background:white;border-radius:50%;width:23px;height:23px;color:var(--plum)}
+.cart-foot{border-top:1px solid var(--line);padding-top:15px}
+.total{display:flex;justify-content:space-between;font-weight:800;color:var(--plum);margin-bottom:14px}
+.checkout{width:100%;border:0;border-radius:30px;background:#2f8a61;color:white;padding:14px;font-weight:800;font-size:12px}
+.smallprint{font-size:10px;color:var(--muted);line-height:1.5;text-align:center;margin-top:10px}
+@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-panel{padding:40px 6%;min-height:380px}.product-image{height:190px}}
+@media(max-width:600px){
+ .top-strip{font-size:9px}.nav{padding:12px 16px}.brand-name{font-size:31px}.brand-mark{width:36px;height:36px}
+ .nav-links{display:none}.hero{padding:0 12px;margin-top:13px}.hero-panel{grid-template-columns:1fr;padding:34px 24px 20px;text-align:center;min-height:0}
+ .hero-copy{margin:auto}.hero h1{font-size:55px}.hero-copy p{margin:0 auto 20px}.hero-art{min-height:225px;margin-top:8px}.orbit{width:210px}.orbit-inner{font-size:82px}
+ .float.one{left:2%;top:9%}.float.two{right:0;bottom:8%}.section{padding:52px 14px}.product-grid{gap:11px}.product-image{height:155px}
+ .product-info{padding:11px}.product-info h3{font-size:16px}.product-desc{font-size:10px}.add-btn{padding:8px 10px}
+ .tools{align-items:flex-start;flex-direction:column}.search{width:100%}.feature-band{padding:0 14px}.feature-inner{padding:27px 22px;display:block}.feature-inner h2{font-size:29px}.feature-inner .light-btn{margin-top:17px}
+ .perks{grid-template-columns:1fr}.footer{padding-inline:15px}
+}
 </style>
 </head>
 <body>
-<div class="top-note">♡ LITTLE THINGS, ENDLESS JOY ♡ &nbsp; ✨</div>
-<header>
-  <div class="brand">Tiny Treasures<small>♡ TREASURES WORTH KEEPING ♡</small></div>
-  <div class="header-actions">
-    <button class="pill" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop ♡</button>
-    <button class="pill" onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">Bag 🛍️ <span id="cart-count">0</span></button>
-  </div>
+<div class="top-strip">A LITTLE SOMETHING SPECIAL, JUST FOR YOU ✧ SHOP THE LITTLE JOYS ✧</div>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="#">
+      <div class="brand-mark">🎀</div>
+      <div><div class="brand-name">Tiny Treasures</div><div class="brand-small">LITTLE THINGS, ENDLESS JOY</div></div>
+    </a>
+    <div class="nav-links"><a href="#shop">SHOP ALL</a><a href="#about">OUR LITTLE WORLD</a><a href="#contact">SAY HELLO</a></div>
+    <button class="bag-btn" onclick="toggleCart(true)">♡ BAG <span class="bag-count" id="bagCount">0</span></button>
+  </nav>
 </header>
 
+<main>
 <section class="hero">
-  <div class="eyebrow">A LITTLE SOMETHING SPECIAL ✿</div>
-  <h1>Little things,<br>endless joy.</h1>
-  <p>Discover cute finds, thoughtful treasures and little things that make everyday life more magical.</p>
-  <a class="shop-button" href="#shop">Explore the treasures ♡</a>
-  <div class="decor">🎀 ✨</div>
+ <div class="hero-panel">
+  <div class="hero-copy">
+   <div class="eyebrow">✧ Welcome to our happy place ✧</div>
+   <h1>Find your<br><em>little joy.</em></h1>
+   <p>Curious finds, cute surprises and tiny things that make an ordinary day feel a little more special. There's a treasure waiting for you.</p>
+   <a class="primary-btn" href="#shop">EXPLORE THE TREASURES <span>↗</span></a>
+  </div>
+  <div class="hero-art">
+   <span class="spark s1">✦</span><span class="spark s2">✧</span>
+   <div class="orbit"><div class="orbit-inner">🎁</div></div>
+   <div class="float one">♡ little finds</div><div class="float two">made for smiles ✨</div>
+  </div>
+ </div>
 </section>
+<div class="marquee"><span>♡ CUTE FINDS &nbsp; ✧ &nbsp; LITTLE GIFTS &nbsp; ♡ &nbsp; HAPPY SURPRISES &nbsp; ✧ &nbsp; TINY TREASURES &nbsp; ♡ &nbsp; CUTE FINDS &nbsp; ✧ &nbsp; LITTLE GIFTS &nbsp; ♡ &nbsp; HAPPY SURPRISES &nbsp; ✧ &nbsp; TINY TREASURES &nbsp; </span></div>
 
 <section class="section" id="shop">
-  <div class="section-heading">
-    <div><h2>Our little treasures</h2><p>Find something you'll love ♡</p></div>
-    <span>🌷</span>
-  </div>
-  <div class="tools">
-    <input class="search" id="search" placeholder="Search for something cute..." oninput="renderProducts()">
-  </div>
-  <div class="categories" id="categories"></div>
-  <br>
-  <div class="grid" id="products"></div>
+ <div class="section-head"><div class="kicker">the fun part starts here</div><h2>A treasure for everyone</h2><p>Have a little browse. You never know what you'll fall in love with.</p></div>
+ <div class="category-row" id="categories">
+  <button class="chip active" data-category="All">Everything</button>
+  <button class="chip" data-category="Crafts">Crafty things</button>
+  <button class="chip" data-category="Decor">Cute for your space</button>
+  <button class="chip" data-category="Toys">Toys & surprises</button>
+  <button class="chip" data-category="Accessories">Little extras</button>
+ </div>
+ <div class="tools"><input class="search" id="search" type="search" placeholder="Search for a little treasure..."><span class="results-note" id="resultsNote"></span></div>
+ <div class="product-grid" id="productGrid"></div>
 </section>
 
-<section class="cart-panel" id="cart">
-  <h2>Your shopping bag 🛍️</h2>
-  <div id="cart-items"><p class="hint">Your bag is waiting for something lovely!</p></div>
-  <div class="cart-total"><span>Total</span><span id="cart-total">TZS 0</span></div>
-  <button class="whatsapp" onclick="checkout()">Order through WhatsApp ♡</button>
-  <p class="hint">Your order will be sent to us on WhatsApp for confirmation. Delivery and payment details can be arranged there.</p>
+<section class="feature-band">
+ <div class="feature-inner">
+  <div><h2>Small things. Big smiles. ♡</h2><p>Some treasures are just too cute to keep to yourself.<br>Find your next favourite little thing at Tiny Treasures.</p></div>
+  <a class="light-btn" href="#shop">FIND YOUR FAVOURITE ↗</a>
+ </div>
 </section>
 
-<footer>
-  <strong>Tiny Treasures</strong>
-  <p>Little things, endless joy. ✨</p>
-  <p>Find us on Instagram: @tiny_treasures.tz</p>
-  <p>Made with ♡ in Tanzania</p>
+<section class="section" id="about">
+ <div class="section-head"><div class="kicker">a little note from us</div><h2>Why Tiny Treasures?</h2><p>Because life's little joys deserve to be celebrated.</p></div>
+ <div class="perks">
+  <div class="perk"><div class="emoji">🎀</div><h3>Handpicked finds</h3><p>Fun, thoughtful and unexpected little treasures.</p></div>
+  <div class="perk"><div class="emoji">💌</div><h3>Easy ordering</h3><p>Send us your order on WhatsApp and we'll help you from there.</p></div>
+  <div class="perk"><div class="emoji">✨</div><h3>Little quantities</h3><p>Some finds are limited, so grab your favourite while it's here.</p></div>
+ </div>
+</section>
+</main>
+
+<footer class="footer" id="contact">
+ <div class="footer-brand">Tiny Treasures</div>
+ <p>Little things, endless joy. ✨<br>Got your eye on something? We'd love to hear from you.</p>
+ <div class="footer-links"><a href="#shop">SHOP</a><a href="https://www.instagram.com/tiny_treasures.tz/" target="_blank" rel="noopener">INSTAGRAM</a><a href="#" id="footerWhatsApp">WHATSAPP</a></div>
+ <div class="copyright">© <span id="year"></span> Tiny Treasures · Made with ♡ in Tanzania</div>
 </footer>
 
+<div class="cart-panel" id="cartPanel" onclick="if(event.target===this)toggleCart(false)">
+ <aside class="cart">
+  <div class="cart-head"><h2>Your little bag ♡</h2><button class="close" onclick="toggleCart(false)">×</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot"><div class="total"><span>Estimated total</span><span id="cartTotal">TZS 0</span></div><button class="checkout" onclick="checkout()">ORDER ON WHATSAPP ↗</button><div class="smallprint">We'll confirm availability, delivery and payment with you on WhatsApp.</div></div>
+ </aside>
+</div>
+
 <script>
-// EDIT YOUR WHATSAPP NUMBER BELOW.
-// Use country code and number only: 2557XXXXXXXX (no + or spaces).
+/* EDIT THESE DETAILS:
+   WhatsApp number: country code + number, digits only (example: 2557XXXXXXXX).
+   Product image: paste a direct image URL. Leave "" to show the cute placeholder.
+   Price: enter the price in TZS as a number, without commas.
+   Stock: enter 0 for sold out. Sold-out products stay visible.
+*/
 const WHATSAPP_NUMBER = "255YOURNUMBER";
 
-// EDIT YOUR PRODUCTS HERE.
-// Set price in TZS and stock as a number.
-// Use image:"" until you add your own product photo URL.
-// Keep stock:0 to show a product as SOLD OUT.
 const products = [
-  {id:1,name:"Hanging Diamond Painting",category:"Crafts",price:0,stock:2,emoji:"🌸",image:"",description:"A lovely little creative project."},
-  {id:2,name:"Glow-in-the-dark Turtle",category:"Decor",price:0,stock:1,emoji:"🐢",image:"",description:"A cute glowing companion."},
-  {id:3,name:"Stitch Mystery Bag",category:"Toys",price:0,stock:1,emoji:"💙",image:"",description:"A little surprise waiting inside."},
-  {id:4,name:"Phone Accessories",category:"Accessories",price:0,stock:2,emoji:"🎀",image:"",description:"Add a little personality to your phone."}
+ {id:1,name:"Hanging Diamond Painting",category:"Crafts",price:0,stock:2,tag:"Creative time",emoji:"🌸",image:"",description:"A lovely little creative project."},
+ {id:2,name:"Glow-in-the-dark Turtle",category:"Decor",price:0,stock:1,tag:"Little favourite",emoji:"🐢",image:"",description:"A cute glowing companion for your space."},
+ {id:3,name:"Stitch Mystery Bag",category:"Toys",price:0,stock:1,tag:"Surprise inside",emoji:"💙",image:"",description:"A little surprise waiting to be opened."},
+ {id:4,name:"Phone Accessories",category:"Accessories",price:0,stock:2,tag:"Cute extra",emoji:"🎀",image:"",description:"Add a little personality to your phone."}
 ];
 
-let selectedCategory = "All";
-let cart = [];
-
-const money = n => "TZS " + Number(n).toLocaleString("en-US");
-
-function renderCategories(){
-  const names = ["All",...new Set(products.map(p=>p.category))];
-  document.getElementById("categories").innerHTML = names.map(name =>
-    `<button class="category ${selectedCategory===name?'active':''}" onclick="selectCategory('${name}')">${name}</button>`
-  ).join("");
-}
-function selectCategory(name){selectedCategory=name;renderCategories();renderProducts()}
-
+let activeCategory="All";
+let cart={};
+const money=n=>"TZS "+Number(n).toLocaleString("en-US");
 function renderProducts(){
-  const search = document.getElementById("search").value.toLowerCase();
-  const list = products.filter(p =>
-    (selectedCategory==="All" || p.category===selectedCategory) &&
-    (p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search))
-  );
-  document.getElementById("products").innerHTML = list.length ? list.map(p => `
-    <article class="product">
-      <div class="product-visual">
-        ${p.image ? `<img src="${p.image}" alt="${p.name}">` : `<span class="product-emoji">${p.emoji}</span>`}
-        <span class="stock ${p.stock<=0?'out':''}">${p.stock<=0?'SOLD OUT':'IN STOCK'}</span>
-      </div>
-      <h3>${p.name}</h3>
-      <p class="description">${p.description||''}</p>
-      <p class="price">${p.price>0?money(p.price):'Price coming soon'}</p>
-      <div class="card-bottom">
-        <small>${p.stock>0?p.stock+' left':'Currently unavailable'}</small>
-        <button class="add" ${p.stock<=0||p.price<=0?'disabled':''} onclick="addToCart(${p.id})">${p.stock<=0?'Sold out':p.price<=0?'Coming soon':'Add +'}</button>
-      </div>
-    </article>`).join("") : `<p class="empty">No treasures found. Try another search ♡</p>`;
+ const term=document.getElementById("search").value.toLowerCase().trim();
+ const shown=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(`${p.name} ${p.category} ${p.description}`).toLowerCase().includes(term));
+ document.getElementById("resultsNote").textContent=`${shown.length} little ${shown.length===1?"treasure":"treasures"}`;
+ const grid=document.getElementById("productGrid");
+ if(!shown.length){grid.innerHTML='<div class="empty">No treasures found just yet. Try another search ♡</div>';return;}
+ grid.innerHTML=shown.map(p=>{
+  const sold=p.stock<=0;
+  const image=p.image?`<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">`:"";
+  return `<article class="product-card">
+   <div class="product-image">${image}<div class="placeholder" style="${p.image?'display:none':''}">${p.emoji||"🎁"}</div>
+   <span class="product-tag">${sold?"Sold out":p.tag||"A tiny treasure"}</span></div>
+   <div class="product-info"><div class="product-category">${p.category}</div><h3>${p.name}</h3>
+   <div class="product-desc">${p.description||""}</div>
+   <div class="product-bottom"><span class="price">${p.price>0?money(p.price):"Price coming soon"}</span>
+   <button class="add-btn ${sold?'sold':''}" ${sold||p.price<=0?'disabled':''} onclick="addToCart(${p.id})">${sold?"SOLD OUT":p.price<=0?"COMING SOON":"ADD +"}</button></div>
+   <div class="stock-note">${sold?"Currently unavailable":p.stock===1?"Only 1 left!":p.stock<=3?`Only ${p.stock} left!`:"Available now"}</div></div>
+  </article>`;
+ }).join("");
 }
-
-function addToCart(id){
-  const p=products.find(x=>x.id===id);
-  const item=cart.find(x=>x.id===id);
-  if(!p||p.stock<=0)return;
-  if(item){if(item.qty>=p.stock)return;item.qty++}
-  else cart.push({id,qty:1});
-  renderCart();
-}
-function removeFromCart(id){cart=cart.filter(x=>x.id!==id);renderCart()}
+document.querySelectorAll(".chip").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll(".chip").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");activeCategory=btn.dataset.category;renderProducts();
+}));
+document.getElementById("search").addEventListener("input",renderProducts);
+function addToCart(id){const p=products.find(x=>x.id===id);if(!p||p.stock<=0||p.price<=0)return;const qty=cart[id]||0;if(qty>=p.stock){alert("That's all the available stock for this treasure!");return;}cart[id]=qty+1;renderCart();}
+function changeQty(id,delta){const p=products.find(x=>x.id===id);const next=(cart[id]||0)+delta;if(next<=0)delete cart[id];else if(next<=p.stock)cart[id]=next;renderCart();}
 function renderCart(){
-  const count=cart.reduce((sum,x)=>sum+x.qty,0);
-  document.getElementById("cart-count").textContent=count;
-  document.getElementById("cart-items").innerHTML=cart.length?cart.map(x=>{
-    const p=products.find(y=>y.id===x.id);
-    return `<div class="cart-line"><span>${p.name} × ${x.qty}</span><span>${money(p.price*x.qty)} <button onclick="removeFromCart(${p.id})">Remove</button></span></div>`;
-  }).join(""):`<p class="hint">Your bag is waiting for something lovely!</p>`;
-  const total=cart.reduce((sum,x)=>sum+products.find(p=>p.id===x.id).price*x.qty,0);
-  document.getElementById("cart-total").textContent=money(total);
-}
-function checkout(){
-  if(!cart.length){alert("Your shopping bag is empty!");return}
-  if(WHATSAPP_NUMBER.includes("YOURNUMBER")){alert("Please add your WhatsApp number in the code before accepting orders.");return}
-  const lines=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `${p.name} x ${x.qty} - ${money(p.price*x.qty)}`});
-  const total=cart.reduce((sum,x)=>sum+products.find(p=>p.id===x.id).price*x.qty,0);
-  const message=`Hello Tiny Treasures! ♡ I'd like to order:\n\n${lines.join("\n")}\n\nTotal: ${money(total)}\n\nPlease confirm availability and delivery details.`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,"_blank");
-}
-renderCategories();
-renderProducts();
-renderCart();
-</script>
-</body>
-</html>
+ const entries=Object.entries(cart).filter(([id,q])=>q>0);
+ document.getElementById("bagCount").textContent=entries.reduce((s,[id,q])=>s+q,0);
+ document.getElementById("cartItems").innerHTML=ent
