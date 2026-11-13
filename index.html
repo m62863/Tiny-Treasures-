@@ -3,130 +3,201 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f8edf1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff5f6">
 <title>Tiny Treasures | Little things, endless joy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+:root {
+  --pink:#f4cbd5;
+  --pink-dark:#d98da5;
+  --cream:#fffaf3;
+  --lavender:#eee7f8;
+  --ink:#55434c;
+  --muted:#927d86;
+  --white:#fff;
+}
 *{box-sizing:border-box}
-body{margin:0;background:#fffaf8;color:#493b40;font-family:Arial,sans-serif}
-header{background:#f7e9ee;padding:24px 18px;text-align:center}
-header h1{font-family:Georgia,serif;font-size:30px;margin:4px}
-header p{font-size:13px;letter-spacing:2px}
-nav{display:flex;justify-content:center;gap:20px;padding:14px;background:white}
-nav a{color:#634c57;text-decoration:none;font-size:13px}
-.hero{text-align:center;padding:48px 20px;background:#f9eef1}
-.hero h2{font:32px Georgia,serif;margin:0 0 12px}
-.hero p{font-size:14px;line-height:1.7}
-button{border:0;border-radius:22px;padding:12px 18px;background:#9b6c80;color:white;cursor:pointer}
-main{padding:22px 15px;max-width:900px;margin:auto}
-h2.section{font:25px Georgia,serif}
-.search{width:100%;padding:14px;border:1px solid #ead9df;border-radius:25px;margin:10px 0 18px}
-.categories{display:flex;gap:9px;overflow:auto;padding:5px 0 18px}
-.categories button{white-space:nowrap;background:#f2e3e9;color:#654b59}
-.categories button.active{background:#9b6c80;color:white}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.product{background:white;border:1px solid #f0e4e8;border-radius:14px;overflow:hidden}
-.photo{height:130px;background:#f5e9ed;display:grid;place-items:center;font-size:42px}
-.info{padding:12px}
-.info h3{font:17px Georgia,serif;margin:0 0 8px}
-.price{font-weight:bold;margin:8px 0}
-.stock{font-size:11px;color:#68846d}
-.sold{color:#a45c69}
-.info button{width:100%;margin-top:9px;font-size:12px}
-#cart{background:#f8edf1;padding:20px;border-radius:14px;margin-top:28px}
-footer{text-align:center;background:#f7e9ee;padding:25px;font-size:13px}
-@media(min-width:650px){.products{grid-template-columns:repeat(3,1fr)}.photo{height:180px}}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Nunito',sans-serif}
+button{font:inherit;cursor:pointer}
+.top-note{text-align:center;background:#f8e1e7;padding:9px;font-size:12px;letter-spacing:1px}
+header{padding:22px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-family:'Dancing Script',cursive;font-size:36px;font-weight:700;color:#bd718b}
+.brand small{display:block;font-family:'Nunito';font-size:10px;letter-spacing:3px;text-align:center;color:var(--muted);font-weight:800}
+.header-actions{display:flex;gap:10px}
+.pill{border:1px solid #edcfda;background:white;border-radius:30px;padding:10px 15px;color:var(--ink);font-weight:800}
+.hero{margin:8px 5% 30px;background:linear-gradient(120deg,#f8dce4,#fff0e8 55%,#eee6f7);border-radius:28px;padding:48px 7%;position:relative;overflow:hidden}
+.hero:after{content:"✿";position:absolute;right:7%;top:12%;font-size:100px;color:#fff9;transform:rotate(18deg)}
+.hero .eyebrow{font-size:11px;letter-spacing:3px;font-weight:900}
+.hero h1{font:600 clamp(38px,7vw,66px) 'Dancing Script',cursive;margin:12px 0;color:#a95f7b;max-width:600px}
+.hero p{max-width:430px;line-height:1.7;color:#735c66}
+.shop-button{display:inline-block;background:#bd718b;color:white;text-decoration:none;border:0;border-radius:30px;padding:13px 24px;font-weight:900;margin-top:10px}
+.decor{position:absolute;right:12%;bottom:10%;font-size:42px}
+.section{padding:12px 5% 45px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
+.section-heading h2{font:600 34px 'Dancing Script',cursive;color:#a95f7b;margin:0}
+.section-heading p{font-size:12px;color:var(--muted);margin:4px 0}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.search{flex:1;min-width:180px;border:1px solid #eedce2;border-radius:25px;padding:12px 16px;background:white;font:inherit;outline:none}
+.categories{display:flex;gap:8px;flex-wrap:wrap}
+.category{border:1px solid #ead5dd;background:white;color:var(--ink);border-radius:25px;padding:10px 15px;font-size:12px;font-weight:800}
+.category.active{background:#bd718b;color:white;border-color:#bd718b}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.product{background:white;border:1px solid #f1e3e7;border-radius:20px;padding:10px;box-shadow:0 5px 18px #9e718010;min-width:0}
+.product-visual{height:175px;border-radius:15px;background:linear-gradient(145deg,#fff0f3,#f1eafa);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.product-visual img{width:100%;height:100%;object-fit:cover}
+.product-emoji{font-size:58px}
+.stock{position:absolute;top:9px;left:9px;background:#e7f4e8;color:#477b50;border-radius:20px;padding:5px 9px;font-size:10px;font-weight:900}
+.stock.out{background:#f8e4e9;color:#a34c68}
+.product h3{font-size:14px;margin:12px 2px 4px}
+.description{font-size:11px;color:var(--muted);margin:0 2px 9px;min-height:15px}
+.price{font-size:15px;font-weight:900;margin:0 2px 10px;color:#a95f7b}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.card-bottom small{font-size:10px;color:var(--muted)}
+.add{border:0;background:#f5dce4;color:#995a73;border-radius:20px;padding:8px 12px;font-size:11px;font-weight:900}
+.add:disabled{background:#eee;color:#999;cursor:not-allowed}
+.empty{padding:35px;text-align:center;color:var(--muted);grid-column:1/-1}
+.cart-panel{margin:0 5% 40px;background:#fff;border:1px solid #f0dfe5;border-radius:24px;padding:22px}
+.cart-panel h2{font:600 30px 'Dancing Script',cursive;color:#a95f7b;margin:0 0 12px}
+.cart-line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #f4e9ed;font-size:13px}
+.cart-line button{border:0;background:none;color:#b46c86;font-weight:900}
+.cart-total{display:flex;justify-content:space-between;font-weight:900;padding:16px 0}
+.whatsapp{width:100%;border:0;border-radius:25px;background:#4b9b70;color:white;padding:14px;font-weight:900}
+.hint{font-size:11px;color:var(--muted);line-height:1.6}
+footer{text-align:center;background:#f7e4e9;padding:28px 15px;color:#806775;font-size:12px}
+footer strong{font:600 28px 'Dancing Script',cursive;color:#a95f7b}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-visual{height:155px}}
+@media(max-width:420px){header{padding:18px 4%}.brand{font-size:31px}.pill{padding:9px 11px;font-size:12px}.hero{margin:5px 4% 25px;padding:34px 7%}.section{padding-left:4%;padding-right:4%}.product-visual{height:135px}.product{padding:8px}}
 </style>
 </head>
 <body>
+<div class="top-note">♡ LITTLE THINGS, ENDLESS JOY ♡ &nbsp; ✨</div>
 <header>
-<h1>Tiny Treasures ✨</h1>
-<p>LITTLE THINGS, ENDLESS JOY.</p>
+  <div class="brand">Tiny Treasures<small>♡ TREASURES WORTH KEEPING ♡</small></div>
+  <div class="header-actions">
+    <button class="pill" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop ♡</button>
+    <button class="pill" onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">Bag 🛍️ <span id="cart-count">0</span></button>
+  </div>
 </header>
-<nav>
-<a href="#">Home</a>
-<a href="#shop">Shop</a>
-<a href="#cart">My Cart</a>
-<a href="#contact">Contact</a>
-</nav>
+
 <section class="hero">
-<h2>Find your little treasure ♡</h2>
-<p>Unique finds, thoughtful gifts and little things<br>that make everyday special.</p>
-<a href="#shop"><button>Explore the shop</button></a>
+  <div class="eyebrow">A LITTLE SOMETHING SPECIAL ✿</div>
+  <h1>Little things,<br>endless joy.</h1>
+  <p>Discover cute finds, thoughtful treasures and little things that make everyday life more magical.</p>
+  <a class="shop-button" href="#shop">Explore the treasures ♡</a>
+  <div class="decor">🎀 ✨</div>
 </section>
-<main id="shop">
-<h2 class="section">Our Treasures</h2>
-<input class="search" id="search" placeholder="Search for something special...">
-<div class="categories">
-<button class="active" onclick="filter('All',this)">All</button>
-<button onclick="filter('Toys',this)">Toys & Gifts</button>
-<button onclick="filter('Crafts',this)">Crafts</button>
-<button onclick="filter('Accessories',this)">Accessories</button>
-</div>
-<div class="products" id="products"></div>
-<section id="cart">
-<h2 class="section">Your Shopping Bag ♡</h2>
-<div id="cartItems">Your cart is empty.</div>
-<p id="total">Total: TZS 0</p>
-<button onclick="checkout()">Order via WhatsApp</button>
+
+<section class="section" id="shop">
+  <div class="section-heading">
+    <div><h2>Our little treasures</h2><p>Find something you'll love ♡</p></div>
+    <span>🌷</span>
+  </div>
+  <div class="tools">
+    <input class="search" id="search" placeholder="Search for something cute..." oninput="renderProducts()">
+  </div>
+  <div class="categories" id="categories"></div>
+  <br>
+  <div class="grid" id="products"></div>
 </section>
-</main>
-<footer id="contact">
-<h3>Tiny Treasures ♡</h3>
-<p>Little things, endless joy.</p>
-<p>Tanzania</p>
-<p>Follow us on Instagram: @tiny_treasures.tz</p>
+
+<section class="cart-panel" id="cart">
+  <h2>Your shopping bag 🛍️</h2>
+  <div id="cart-items"><p class="hint">Your bag is waiting for something lovely!</p></div>
+  <div class="cart-total"><span>Total</span><span id="cart-total">TZS 0</span></div>
+  <button class="whatsapp" onclick="checkout()">Order through WhatsApp ♡</button>
+  <p class="hint">Your order will be sent to us on WhatsApp for confirmation. Delivery and payment details can be arranged there.</p>
+</section>
+
+<footer>
+  <strong>Tiny Treasures</strong>
+  <p>Little things, endless joy. ✨</p>
+  <p>Find us on Instagram: @tiny_treasures.tz</p>
+  <p>Made with ♡ in Tanzania</p>
 </footer>
+
 <script>
-const products=[
-{id:1,name:"Hanging Diamond Painting",price:0,category:"Crafts",stock:2,emoji:"💎"},
-{id:2,name:"Glow-in-the-dark Turtle",price:0,category:"Toys",stock:1,emoji:"🐢"},
-{id:3,name:"Stitch Mystery Bag",price:0,category:"Toys",stock:1,emoji:"🎁"},
-{id:4,name:"Phone Accessories",price:0,category:"Accessories",stock:2,emoji:"📱"}
+// EDIT YOUR WHATSAPP NUMBER BELOW.
+// Use country code and number only: 2557XXXXXXXX (no + or spaces).
+const WHATSAPP_NUMBER = "255YOURNUMBER";
+
+// EDIT YOUR PRODUCTS HERE.
+// Set price in TZS and stock as a number.
+// Use image:"" until you add your own product photo URL.
+// Keep stock:0 to show a product as SOLD OUT.
+const products = [
+  {id:1,name:"Hanging Diamond Painting",category:"Crafts",price:0,stock:2,emoji:"🌸",image:"",description:"A lovely little creative project."},
+  {id:2,name:"Glow-in-the-dark Turtle",category:"Decor",price:0,stock:1,emoji:"🐢",image:"",description:"A cute glowing companion."},
+  {id:3,name:"Stitch Mystery Bag",category:"Toys",price:0,stock:1,emoji:"💙",image:"",description:"A little surprise waiting inside."},
+  {id:4,name:"Phone Accessories",category:"Accessories",price:0,stock:2,emoji:"🎀",image:"",description:"Add a little personality to your phone."}
 ];
-let cart=[];
-let category="All";
-function render(){
-let q=document.getElementById("search").value.toLowerCase();
-document.getElementById("products").innerHTML=products.filter(p=>(category==="All"||p.category===category)&&p.name.toLowerCase().includes(q)).map(p=>`
-<div class="product">
-<div class="photo">${p.emoji}</div>
-<div class="info">
-<h3>${p.name}</h3>
-<div class="price">${p.price? "TZS "+p.price.toLocaleString():"Price to be added"}</div>
-<div class="stock ${p.stock===0?"sold":""}">${p.stock>0?p.stock+" available":"SOLD OUT"}</div>
-<button ${p.stock===0?"disabled":""} onclick="add(${p.id})">${p.stock>0?"Add to cart":"Sold out"}</button>
-</div></div>`).join("");
+
+let selectedCategory = "All";
+let cart = [];
+
+const money = n => "TZS " + Number(n).toLocaleString("en-US");
+
+function renderCategories(){
+  const names = ["All",...new Set(products.map(p=>p.category))];
+  document.getElementById("categories").innerHTML = names.map(name =>
+    `<button class="category ${selectedCategory===name?'active':''}" onclick="selectCategory('${name}')">${name}</button>`
+  ).join("");
 }
-function filter(c,b){
-category=c;
-document.querySelectorAll(".categories button").forEach(x=>x.classList.remove("active"));
-b.classList.add("active");
-render();
+function selectCategory(name){selectedCategory=name;renderCategories();renderProducts()}
+
+function renderProducts(){
+  const search = document.getElementById("search").value.toLowerCase();
+  const list = products.filter(p =>
+    (selectedCategory==="All" || p.category===selectedCategory) &&
+    (p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search))
+  );
+  document.getElementById("products").innerHTML = list.length ? list.map(p => `
+    <article class="product">
+      <div class="product-visual">
+        ${p.image ? `<img src="${p.image}" alt="${p.name}">` : `<span class="product-emoji">${p.emoji}</span>`}
+        <span class="stock ${p.stock<=0?'out':''}">${p.stock<=0?'SOLD OUT':'IN STOCK'}</span>
+      </div>
+      <h3>${p.name}</h3>
+      <p class="description">${p.description||''}</p>
+      <p class="price">${p.price>0?money(p.price):'Price coming soon'}</p>
+      <div class="card-bottom">
+        <small>${p.stock>0?p.stock+' left':'Currently unavailable'}</small>
+        <button class="add" ${p.stock<=0||p.price<=0?'disabled':''} onclick="addToCart(${p.id})">${p.stock<=0?'Sold out':p.price<=0?'Coming soon':'Add +'}</button>
+      </div>
+    </article>`).join("") : `<p class="empty">No treasures found. Try another search ♡</p>`;
 }
-function add(id){
-let p=products.find(x=>x.id===id);
-let item=cart.find(x=>x.id===id);
-if(item){if(item.qty>=p.stock)return alert("Only "+p.stock+" available");item.qty++}
-else cart.push({id,qty:1});
-showCart();
+
+function addToCart(id){
+  const p=products.find(x=>x.id===id);
+  const item=cart.find(x=>x.id===id);
+  if(!p||p.stock<=0)return;
+  if(item){if(item.qty>=p.stock)return;item.qty++}
+  else cart.push({id,qty:1});
+  renderCart();
 }
-function showCart(){
-document.getElementById("cartItems").innerHTML=cart.length?cart.map(i=>{
-let p=products.find(x=>x.id===i.id);
-return `<p>${p.name} × ${i.qty} <button onclick="removeItem(${i.id})">Remove</button></p>`;
-}).join(""):"Your cart is empty.";
-let sum=cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0);
-document.getElementById("total").textContent="Total: TZS "+sum.toLocaleString();
+function removeFromCart(id){cart=cart.filter(x=>x.id!==id);renderCart()}
+function renderCart(){
+  const count=cart.reduce((sum,x)=>sum+x.qty,0);
+  document.getElementById("cart-count").textContent=count;
+  document.getElementById("cart-items").innerHTML=cart.length?cart.map(x=>{
+    const p=products.find(y=>y.id===x.id);
+    return `<div class="cart-line"><span>${p.name} × ${x.qty}</span><span>${money(p.price*x.qty)} <button onclick="removeFromCart(${p.id})">Remove</button></span></div>`;
+  }).join(""):`<p class="hint">Your bag is waiting for something lovely!</p>`;
+  const total=cart.reduce((sum,x)=>sum+products.find(p=>p.id===x.id).price*x.qty,0);
+  document.getElementById("cart-total").textContent=money(total);
 }
-function removeItem(id){cart=cart.filter(i=>i.id!==id);showCart()}
 function checkout(){
-if(!cart.length)return alert("Your cart is empty!");
-let msg="Hello Tiny Treasures! I'd like to order:%0A"+cart.map(i=>{let p=products.find(x=>x.id===i.id);return encodeURIComponent(p.name+" x "+i.qty)}).join("%0A");
-window.open("https://wa.me/255YOURNUMBER?text="+msg,"_blank");
+  if(!cart.length){alert("Your shopping bag is empty!");return}
+  if(WHATSAPP_NUMBER.includes("YOURNUMBER")){alert("Please add your WhatsApp number in the code before accepting orders.");return}
+  const lines=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `${p.name} x ${x.qty} - ${money(p.price*x.qty)}`});
+  const total=cart.reduce((sum,x)=>sum+products.find(p=>p.id===x.id).price*x.qty,0);
+  const message=`Hello Tiny Treasures! ♡ I'd like to order:\n\n${lines.join("\n")}\n\nTotal: ${money(total)}\n\nPlease confirm availability and delivery details.`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,"_blank");
 }
-document.getElementById("search").addEventListener("input",render);
-render();
+renderCategories();
+renderProducts();
+renderCart();
 </script>
 </body>
 </html>
