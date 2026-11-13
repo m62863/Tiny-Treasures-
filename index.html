@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8edf1">
+<title>Tiny Treasures | Little things, endless joy</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fffaf8;color:#493b40;font-family:Arial,sans-serif}
+header{background:#f7e9ee;padding:24px 18px;text-align:center}
+header h1{font-family:Georgia,serif;font-size:30px;margin:4px}
+header p{font-size:13px;letter-spacing:2px}
+nav{display:flex;justify-content:center;gap:20px;padding:14px;background:white}
+nav a{color:#634c57;text-decoration:none;font-size:13px}
+.hero{text-align:center;padding:48px 20px;background:#f9eef1}
+.hero h2{font:32px Georgia,serif;margin:0 0 12px}
+.hero p{font-size:14px;line-height:1.7}
+button{border:0;border-radius:22px;padding:12px 18px;background:#9b6c80;color:white;cursor:pointer}
+main{padding:22px 15px;max-width:900px;margin:auto}
+h2.section{font:25px Georgia,serif}
+.search{width:100%;padding:14px;border:1px solid #ead9df;border-radius:25px;margin:10px 0 18px}
+.categories{display:flex;gap:9px;overflow:auto;padding:5px 0 18px}
+.categories button{white-space:nowrap;background:#f2e3e9;color:#654b59}
+.categories button.active{background:#9b6c80;color:white}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.product{background:white;border:1px solid #f0e4e8;border-radius:14px;overflow:hidden}
+.photo{height:130px;background:#f5e9ed;display:grid;place-items:center;font-size:42px}
+.info{padding:12px}
+.info h3{font:17px Georgia,serif;margin:0 0 8px}
+.price{font-weight:bold;margin:8px 0}
+.stock{font-size:11px;color:#68846d}
+.sold{color:#a45c69}
+.info button{width:100%;margin-top:9px;font-size:12px}
+#cart{background:#f8edf1;padding:20px;border-radius:14px;margin-top:28px}
+footer{text-align:center;background:#f7e9ee;padding:25px;font-size:13px}
+@media(min-width:650px){.products{grid-template-columns:repeat(3,1fr)}.photo{height:180px}}
+</style>
+</head>
+<body>
+<header>
+<h1>Tiny Treasures ✨</h1>
+<p>LITTLE THINGS, ENDLESS JOY.</p>
+</header>
+<nav>
+<a href="#">Home</a>
+<a href="#shop">Shop</a>
+<a href="#cart">My Cart</a>
+<a href="#contact">Contact</a>
+</nav>
+<section class="hero">
+<h2>Find your little treasure ♡</h2>
+<p>Unique finds, thoughtful gifts and little things<br>that make everyday special.</p>
+<a href="#shop"><button>Explore the shop</button></a>
+</section>
+<main id="shop">
+<h2 class="section">Our Treasures</h2>
+<input class="search" id="search" placeholder="Search for something special...">
+<div class="categories">
+<button class="active" onclick="filter('All',this)">All</button>
+<button onclick="filter('Toys',this)">Toys & Gifts</button>
+<button onclick="filter('Crafts',this)">Crafts</button>
+<button onclick="filter('Accessories',this)">Accessories</button>
+</div>
+<div class="products" id="products"></div>
+<section id="cart">
+<h2 class="section">Your Shopping Bag ♡</h2>
+<div id="cartItems">Your cart is empty.</div>
+<p id="total">Total: TZS 0</p>
+<button onclick="checkout()">Order via WhatsApp</button>
+</section>
+</main>
+<footer id="contact">
+<h3>Tiny Treasures ♡</h3>
+<p>Little things, endless joy.</p>
+<p>Tanzania</p>
+<p>Follow us on Instagram: @tiny_treasures.tz</p>
+</footer>
+<script>
+const products=[
+{id:1,name:"Hanging Diamond Painting",price:0,category:"Crafts",stock:2,emoji:"💎"},
+{id:2,name:"Glow-in-the-dark Turtle",price:0,category:"Toys",stock:1,emoji:"🐢"},
+{id:3,name:"Stitch Mystery Bag",price:0,category:"Toys",stock:1,emoji:"🎁"},
+{id:4,name:"Phone Accessories",price:0,category:"Accessories",stock:2,emoji:"📱"}
+];
+let cart=[];
+let category="All";
+function render(){
+let q=document.getElementById("search").value.toLowerCase();
+document.getElementById("products").innerHTML=products.filter(p=>(category==="All"||p.category===category)&&p.name.toLowerCase().includes(q)).map(p=>`
+<div class="product">
+<div class="photo">${p.emoji}</div>
+<div class="info">
+<h3>${p.name}</h3>
+<div class="price">${p.price? "TZS "+p.price.toLocaleString():"Price to be added"}</div>
+<div class="stock ${p.stock===0?"sold":""}">${p.stock>0?p.stock+" available":"SOLD OUT"}</div>
+<button ${p.stock===0?"disabled":""} onclick="add(${p.id})">${p.stock>0?"Add to cart":"Sold out"}</button>
+</div></div>`).join("");
+}
+function filter(c,b){
+category=c;
+document.querySelectorAll(".categories button").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+render();
+}
+function add(id){
+let p=products.find(x=>x.id===id);
+let item=cart.find(x=>x.id===id);
+if(item){if(item.qty>=p.stock)return alert("Only "+p.stock+" available");item.qty++}
+else cart.push({id,qty:1});
+showCart();
+}
+function showCart(){
+document.getElementById("cartItems").innerHTML=cart.length?cart.map(i=>{
+let p=products.find(x=>x.id===i.id);
+return `<p>${p.name} × ${i.qty} <button onclick="removeItem(${i.id})">Remove</button></p>`;
+}).join(""):"Your cart is empty.";
+let sum=cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0);
+document.getElementById("total").textContent="Total: TZS "+sum.toLocaleString();
+}
+function removeItem(id){cart=cart.filter(i=>i.id!==id);showCart()}
+function checkout(){
+if(!cart.length)return alert("Your cart is empty!");
+let msg="Hello Tiny Treasures! I'd like to order:%0A"+cart.map(i=>{let p=products.find(x=>x.id===i.id);return encodeURIComponent(p.name+" x "+i.qty)}).join("%0A");
+window.open("https://wa.me/255YOURNUMBER?text="+msg,"_blank");
+}
+document.getElementById("search").addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
